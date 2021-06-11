@@ -22,7 +22,7 @@ const App = (() => {
     3
   );
   const q2 = new Question(
-    "Which company developed JavaScript?",
+    `"Which company developed JavaScript?"`,
     ["Netscape", "Bell Labs", "IBM", "Oracle"],
     0
   );
@@ -54,11 +54,10 @@ const App = (() => {
       markup += `
       <li class='answer'>
             
-      <input type="radio" name="choice" class="choiceInput" data-key="${index}" id="choice${index}"> 
+      <input type="radio" name="choice" class="answer__input" data-key="${index}" id="choice${index}"> 
       <label for="choice${index}" class="choiceLabel">
       <i></i>
       ${choice}</label>
-
       </li>
           
         `;
