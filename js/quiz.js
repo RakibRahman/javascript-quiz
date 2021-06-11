@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 export default function Quiz(questions) {
   this.questions = questions; //store questions from questions.js
   this.score = 0;
@@ -18,9 +20,16 @@ Quiz.prototype.isCompleted = function () {
 
 // Check user guess
 Quiz.prototype.guess = function (userGuess) {
-  const currentQuestion = this.questions[this.currentIndex]; //get current question
-  if (currentQuestion.isCorrect(userGuess)) {
+  const currentQues = this.questions[this.currentIndex]; //get current question
+  if (currentQues.isCorrect(userGuess)) {
     this.score++;
   }
   this.nextIndex();
+};
+
+//Reset Quiz
+
+Quiz.prototype.reset = function () {
+  this.currentIndex = 0;
+  this.score = 0;
 };
