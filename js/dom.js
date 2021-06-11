@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 export default function dom() {
   const container = document.getElementById("container");
 
