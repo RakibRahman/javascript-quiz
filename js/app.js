@@ -121,7 +121,11 @@ const App = (() => {
         renderQuiz();
       }
     });
-    restart.addEventListener("click", () => {});
+    restart.addEventListener("click", () => {
+      quiz.reset();
+      renderQuiz();
+      next.style.opacity = 1;
+    });
   };
   const renderQuiz = (_) => {
     if (quiz.isCompleted()) {
@@ -131,13 +135,13 @@ const App = (() => {
       renderChoices();
       renderTracker();
       renderProgress();
-
-      eventListeners();
     }
   };
   return {
     renderQuiz: renderQuiz,
+    listener: eventListeners,
   };
 })();
 
 App.renderQuiz();
+App.listener();
