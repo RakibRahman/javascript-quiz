@@ -6,24 +6,28 @@ export default function dom() {
   container.innerHTML += `
 
            <div id="questionSheet">
-                <h1 id="question"></h1>
+               <div id="questionPanel">
+               
+               <div id="question">
+              
+               
+               </div>
+               </div>
     
                     <h3 id="currentQuestionNum"></h3>
     
             <div id='progressBar'><div id='progress'></div></div>
             <h2 id='quizStatus'>Pick a option</h2>
            </div>
-
-            
+ 
             <ul id='answerSheet'>
             
             </ul>
 
-
 <div id="btn">
     
-                <button id='next'>Next</button>
-                <button id='restart'>Restart</button>
+                <button id='next' class='center'>Next</button>
+                <button id='restart' class='spin thick'>Restart</button>
 </div>
 
 `;

@@ -14,25 +14,7 @@ const App = (() => {
   const nextButton = container.querySelector("#next");
   const restartButton = container.querySelector("#restart");
 
-  //Questions
-
-  const q1 = new Question(
-    "Which of the following is not JavaScript Data Types?",
-    ["Undefined", "Number", "String", "Float"],
-    3
-  );
-  const q2 = new Question(
-    `"Which company developed JavaScript?"`,
-    ["Netscape", "Bell Labs", "IBM", "Oracle"],
-    0
-  );
-  const q3 = new Question(
-    "What is the original name of JavaScript?",
-    ["LiveScript", "EScript", "Mocha", "Panda"],
-    2
-  );
-
-  const quiz = new Quiz([q1, q2, q3]); //store questions in Quiz
+  const quiz = new Quiz(Question); //store questions in Quiz
 
   //render the quiz dynamically
   const changeContent = (tag, value) => {
@@ -56,8 +38,8 @@ const App = (() => {
             
       <input type="radio" name="choice" class="answer__input" data-key="${index}" id="choice${index}"> 
       <label for="choice${index}" class="choiceLabel">
-      <i></i>
-      ${choice}</label>
+      <p class="icon"></p>
+      <p>${choice}</p></label>
       </li>
           
         `;
@@ -108,17 +90,25 @@ const App = (() => {
   //Event listener
 
   const eventListeners = (_) => {
+    restart.style.opacity = 0;
+    next.style.marginLeft = "100px";
     next.addEventListener("click", () => {
       const selectedChoice = container.querySelector(
         "input[name=choice]:checked"
       );
-
       if (selectedChoice) {
         const key = Number(selectedChoice.getAttribute("data-key"));
-
         quiz.guess(key);
         renderQuiz();
       }
+
+      restart.style.opacity = 1;
+      next.style.marginLeft = "0px";
+
+      next.innerHTML = `<div class="loading"></div>`;
+      setTimeout(() => {
+        next.innerText = "Next";
+      }, 200);
     });
     restart.addEventListener("click", () => {
       quiz.reset();
