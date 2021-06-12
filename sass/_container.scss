@@ -1,0 +1,95 @@
+#container {
+  width: 80%;
+  max-width: 560px;
+
+  margin: 0.5rem auto 0rem;
+  text-align: center;
+  padding: 1.5rem 0;
+  @extend %bg;
+
+  #questionSheet {
+    color: black;
+
+    #questionPanel {
+      width: 100%;
+      height: 300px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+
+      #question {
+        font-family: $font-primary;
+        font-size: 2rem;
+        letter-spacing: 2.5px;
+        line-height: 1.65;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        & img {
+          max-width: 100%;
+          height: 220px;
+          object-fit: contain;
+        }
+        & p {
+          margin-top: 2rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  #answerSheet {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  #answerSheet input {
+    opacity: 0;
+  }
+
+  .choiceLabel {
+    cursor: pointer;
+
+    font-family: $font-secondary;
+    font-weight: 500;
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .choiceLabel p {
+    margin-right: 10px;
+  }
+  #answerSheet input:checked + label {
+    color: greenyellow;
+  }
+
+  .answer input:checked + label .icon {
+    background-image: url("/img/icons8-ok-64.png");
+  }
+  .answer label .icon {
+    background: url("../img/icons8-filled-circle-64.png");
+    background-size: 40px;
+    height: 40px;
+    width: 40px;
+  }
+
+  /* Progressbar */
+  #progressBar {
+    margin: 1rem auto;
+    width: 80%;
+    background-color: $blue;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  #progress {
+    height: 10px;
+    width: 0;
+    border-right: 4px dashed $yellow;
+    background-color: $yellow;
+  }
+}

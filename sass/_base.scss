@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montaga&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+$font-primary: "Bebas Neue", cursive;
+$font-secondary: "Montaga", serif;
+//Colors
+$background: #fefefe;
+$text: #4b507a;
+
+$cyan: #60daaa;
+$yellow: #fbca67;
+$orange: #ff8a30;
+$red: #f45e61;
+$purple: #6477b9;
+$blue: #3498db;
+
+body {
+  background: whitesmoke;
+  // background: $text;
+  // color: $yellow;
+}
+%bg {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}

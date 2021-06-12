@@ -1,0 +1,162 @@
+// Button
+#btn {
+  button {
+    background: none;
+    border: 0;
+    margin: 0.5rem 0;
+    padding: 1em 2em;
+    box-shadow: inset 0 0 0 2px transparent;
+    color: $text;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+
+    &::before,
+    &::after {
+      box-sizing: inherit;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .loading {
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 0.25rem solid rgba(255, 255, 255, 0.2);
+    border-top-color: rgb(255, 255, 255);
+    animation: spin 1s infinite linear;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .center {
+    box-shadow: inset 0 0 0 2px transparent;
+    &:hover {
+      // border: 1px solid red;
+      color: white;
+    }
+
+    &::before,
+    &::after {
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transform-origin: center;
+    }
+
+    // scale3d(<scale-horizontal>, <scale-vertical>, <scale-depth>);
+    &::before {
+      border-top: 2px solid $orange;
+      border-bottom: 2px solid $orange;
+      transform: scale3d(0, 1, 1); // Shrink only width
+    }
+
+    &::after {
+      border-left: 2px solid $yellow;
+      border-right: 2px solid $yellow;
+      transform: scale3d(1, 0, 1); // Shrink only height
+    }
+
+    &:hover::before,
+    &:hover::after {
+      transform: scale3d(1, 1, 1); // Show full-size
+      transition: transform 0.5s;
+    }
+  }
+  .spin {
+    width: 5em;
+    height: 5em;
+    padding: 0;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &::before,
+    &::after {
+      top: 0;
+      left: 0;
+    }
+
+    &::before {
+      border: 2px solid transparent; // We're animating border-color again
+    }
+
+    &:hover::before {
+      border-top-color: $blue; // Show borders
+      border-right-color: $blue;
+      border-bottom-color: $blue;
+
+      transition: border-top-color 0.15s linear,
+        // Stagger border appearances
+        border-right-color 0.15s linear 0.1s,
+        border-bottom-color 0.15s linear 0.2s;
+    }
+
+    &::after {
+      border: 0 solid transparent;
+    }
+
+    &:hover::after {
+      border-top: 2px solid $blue; // Shows border
+      border-left-width: 2px; // Solid edges, invisible borders
+      border-right-width: 2px; // Solid edges, invisible borders
+      transform: rotate(270deg); // Rotate around circle
+      transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s; // Solid edge post-rotation
+    }
+  }
+
+  .circle {
+    border-radius: 100%;
+    box-shadow: none;
+
+    &::before,
+    &::after {
+      border-radius: 100%;
+    }
+  }
+
+  .thick {
+    &:hover {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    &::before {
+      border: 2.5em solid transparent;
+      z-index: -1;
+    }
+
+    &::after {
+      mix-blend-mode: color-dodge;
+      z-index: -1;
+    }
+
+    &:hover::before {
+      background: $red;
+      border-top-color: $red;
+      border-right-color: $red;
+      border-bottom-color: $red;
+      transition: background 0s linear 0.4s, border-top-color 0.15s linear,
+        border-right-color 0.15s linear 0.15s,
+        border-bottom-color 0.15s linear 0.25s;
+    }
+
+    &:hover::after {
+      border-top: 2.5em solid $red;
+      border-left-width: 2.5em;
+      border-right-width: 2.5em;
+    }
+  }
+}
