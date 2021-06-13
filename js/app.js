@@ -2,7 +2,6 @@
 import DOM from "./dom.js";
 import Question from "./questions.js";
 import Quiz from "./quiz.js";
-
 DOM();
 
 const App = (() => {

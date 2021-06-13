@@ -1,0 +1,23 @@
+{
+  "name": "guess-the-language",
+  "version": "1.0.0",
+  "description": "//todo:",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RakibRahman/javascipt-quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RakibRahman/javascipt-quiz/issues"
+  },
+  "homepage": "https://github.com/RakibRahman/javascipt-quiz#readme",
+  "dependencies": {
+    "sweetalert2": "^11.0.17"
+  }
+}
