@@ -85,12 +85,48 @@ const App = (() => {
   //renderResult
 
   const renderResult = (_) => {
-    changeContent(question, `Greet Job`);
-    changeContent(tracker, "Completed");
+    changeContent(question, `Quiz Completed`);
+    changeContent(tracker, "All Questions Completed");
     changeContent(quizStatus, `Your Score: ${renderScore()}%`);
     next.style.opacity = 0;
 
     renderProgress();
+    if (renderScore() <= 30) {
+      Swal.fire({
+        title: "Practice Harder",
+        text: `${quizStatus.innerText}`,
+        icon: "info",
+        confirmButtonText: "Cool",
+      });
+    } else if (renderScore() > 30 && renderProgress() <= 50) {
+      Swal.fire({
+        title: "Practice More",
+        text: `${quizStatus.innerText}`,
+        icon: "info",
+        confirmButtonText: "Cool",
+      });
+    } else if (renderScore() > 50 && renderScore() <= 70) {
+      Swal.fire({
+        title: "Your are Good",
+        text: `${quizStatus.innerText}`,
+        icon: "info",
+        confirmButtonText: "Cool",
+      });
+    } else if (renderScore() > 70 && renderScore() <= 80) {
+      Swal.fire({
+        title: "Your are Awesome",
+        text: `${quizStatus.innerText}`,
+        icon: "info",
+        confirmButtonText: "Cool",
+      });
+    } else {
+      Swal.fire({
+        title: "Your Are Great",
+        text: `${quizStatus.innerText}`,
+        icon: "info",
+        confirmButtonText: "Cool",
+      });
+    }
   };
 
   //Event listener
