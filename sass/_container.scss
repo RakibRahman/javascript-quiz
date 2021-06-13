@@ -1,24 +1,31 @@
-#container {
+.container {
+  position: relative;
   width: 80%;
   max-width: 45rem;
   margin: 0.5rem auto 0rem;
   text-align: center;
   padding: 1rem 0.4rem;
   @extend %bg;
+  &.dark {
+    background: black;
+  }
 
-  #questionSheet {
+  .questionSheet {
     color: black;
+    &.dark {
+      color: white;
+    }
 
-    #questionPanel {
+    .questionPanel {
       width: 100%;
       height: 300px;
       display: grid;
       place-items: center;
       margin-bottom: 1rem;
 
-      #question {
+      .question {
         font-family: $font-primary;
-        font-size: 2rem;
+        font-size: 1.6rem;
         letter-spacing: 2.5px;
         line-height: 1.65;
         overflow: hidden;
@@ -37,14 +44,14 @@
     }
   }
 
-  #answerSheet {
+  .answerSheet {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
-  #answerSheet input {
+  .answerSheet input {
     opacity: 0;
   }
 
@@ -62,9 +69,10 @@
   }
   .choiceLabel p {
     margin-right: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
   }
-  #answerSheet input:checked + label {
+  .answerSheet input:checked + label {
     color: greenyellow;
   }
 
@@ -77,19 +85,26 @@
     height: 40px;
     width: 40px;
   }
-
+  .answer {
+    &:hover {
+      color: $red;
+    }
+  }
   /* Progressbar */
-  #progressBar {
+  .progressBar {
     margin: 1rem auto;
     width: 80%;
     background-color: $blue;
     border-radius: 5px;
     overflow: hidden;
   }
-  #progress {
+  .progress {
     height: 10px;
     width: 0;
     border-right: 4px dashed $yellow;
-    background-color: $yellow;
+    background: $yellow;
+    &.dark {
+      background: $purple;
+    }
   }
 }

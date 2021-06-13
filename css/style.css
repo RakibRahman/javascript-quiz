@@ -10,7 +10,7 @@ body {
   background: #fefefe;
 }
 
-#container {
+.container {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
@@ -21,6 +21,26 @@ body {
 
 .dark {
   background: black;
+  color: #6477b9;
+}
+
+#toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  outline: none;
+  border: none;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+#toggle img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 #btn button {
@@ -68,7 +88,7 @@ body {
 }
 
 #btn .center:hover {
-  color: black;
+  color: #3498db;
 }
 
 #btn .center::before, #btn .center::after {
@@ -139,6 +159,10 @@ body {
   box-shadow: none;
 }
 
+#btn .circle:hover {
+  color: #3498db;
+}
+
 #btn .circle::before, #btn .circle::after {
   border-radius: 100%;
 }
@@ -172,7 +196,8 @@ body {
   border-right-width: 2.5em;
 }
 
-#container {
+.container {
+  position: relative;
   width: 80%;
   max-width: 45rem;
   margin: 0.5rem auto 0rem;
@@ -181,11 +206,19 @@ body {
   /* Progressbar */
 }
 
-#container #questionSheet {
+.container.dark {
+  background: black;
+}
+
+.container .questionSheet {
   color: black;
 }
 
-#container #questionSheet #questionPanel {
+.container .questionSheet.dark {
+  color: white;
+}
+
+.container .questionSheet .questionPanel {
   width: 100%;
   height: 300px;
   display: grid;
@@ -193,9 +226,9 @@ body {
   margin-bottom: 1rem;
 }
 
-#container #questionSheet #questionPanel #question {
+.container .questionSheet .questionPanel .question {
   font-family: "Bebas Neue", cursive;
-  font-size: 2rem;
+  font-size: 1.6rem;
   letter-spacing: 2.5px;
   line-height: 1.65;
   overflow: hidden;
@@ -203,29 +236,29 @@ body {
   place-items: center;
 }
 
-#container #questionSheet #questionPanel #question img {
+.container .questionSheet .questionPanel .question img {
   max-width: 100%;
   height: 220px;
   object-fit: contain;
 }
 
-#container #questionSheet #questionPanel #question p {
+.container .questionSheet .questionPanel .question p {
   margin-top: 2rem;
   font-size: 1.2rem;
 }
 
-#container #answerSheet {
+.container .answerSheet {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-#container #answerSheet input {
+.container .answerSheet input {
   opacity: 0;
 }
 
-#container .choiceLabel {
+.container .choiceLabel {
   cursor: pointer;
   position: relative;
   font-family: "Montaga", serif;
@@ -237,27 +270,32 @@ body {
   gap: 10px;
 }
 
-#container .choiceLabel p {
+.container .choiceLabel p {
   margin-right: 10px;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1.2px;
 }
 
-#container #answerSheet input:checked + label {
+.container .answerSheet input:checked + label {
   color: greenyellow;
 }
 
-#container .answer input:checked + label .icon {
+.container .answer input:checked + label .icon {
   background-image: url("/img/icons8-ok-64.png");
 }
 
-#container .answer label .icon {
+.container .answer label .icon {
   background: url("../img/icons8-filled-circle-64.png");
   background-size: 40px;
   height: 40px;
   width: 40px;
 }
 
-#container #progressBar {
+.container .answer:hover {
+  color: #f45e61;
+}
+
+.container .progressBar {
   margin: 1rem auto;
   width: 80%;
   background-color: #3498db;
@@ -265,10 +303,14 @@ body {
   overflow: hidden;
 }
 
-#container #progress {
+.container .progress {
   height: 10px;
   width: 0;
   border-right: 4px dashed #fbca67;
-  background-color: #fbca67;
+  background: #fbca67;
+}
+
+.container .progress.dark {
+  background: #6477b9;
 }
 /*# sourceMappingURL=style.css.map */
