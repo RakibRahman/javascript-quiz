@@ -68,7 +68,8 @@ export default (function question() {
     [12, "error", "true", "false"],
     3
   );
-  //q6, q2, q3, q4, q5, q10, q1, q9
-  const quizArray = [q8, q7].sort((a, b) => 0.5 - Math.random());
+  const quizArray = [q8, q7, q6, q2, q3, q4, q5, q10, q1, q9].sort(
+    (a, b) => 0.5 - Math.random()
+  );
   return quizArray;
 })();
