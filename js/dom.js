@@ -1,26 +1,28 @@
 /*jshint esversion: 6 */
 
 export default function dom() {
-  const container = document.getElementById("container");
+  const container = document.querySelector(".container");
 
   container.innerHTML += `
-
-           <div id="questionSheet">
-               <div id="questionPanel">
+  <button id="toggle">
+  <img src="img/icons8-crescent-moon-48.png" alt="sun" />
+</button>
+           <div class="questionSheet">
+               <div class="questionPanel">
                
-               <div id="question">
+               <div class="question">
               
                
                </div>
                </div>
     
-                    <h3 id="currentQuestionNum"></h3>
+                    <h3 class="currentQuestionNum"></h3>
     
-            <div id='progressBar'><div id='progress'></div></div>
-            <h2 id='quizStatus'>Pick a option</h2>
+            <div class='progressBar'><div class='progress'></div></div>
+            <h2 class='quizStatus'>Pick a option</h2>
            </div>
  
-            <ul id='answerSheet'>
+            <ul class='answerSheet'>
             
             </ul>
 
