@@ -48,7 +48,7 @@ export default (function question() {
   );
   const q7 = new Question(
     `<p>Which one of the following statement is most suitable to check if the pattern matches with the sting "text":</p> <img src="img/q7.png" alt="q7">`,
-    ["test(text)", "equals(pattern)", "test(pattern", "text==pattern"],
+    ["test(text)", "equals(pattern)", "test(pattern)", "text==pattern"],
     3
   );
 
@@ -68,7 +68,7 @@ export default (function question() {
     [12, "error", "true", "false"],
     3
   );
-
+  //
   const quizArray = [q8, q7, q6, q2, q3, q4, q5, q10, q1, q9].sort(
     (a, b) => 0.5 - Math.random()
   );

@@ -1,10 +1,9 @@
 #container {
   width: 80%;
-  max-width: 560px;
-
+  max-width: 45rem;
   margin: 0.5rem auto 0rem;
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 1rem 0.4rem;
   @extend %bg;
 
   #questionSheet {
@@ -51,18 +50,19 @@
 
   .choiceLabel {
     cursor: pointer;
-
+    // border: 1px solid #000;
+    position: relative;
     font-family: $font-secondary;
     font-weight: 500;
-    font-size: 20px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin: 0.5rem 2rem;
     gap: 10px;
   }
   .choiceLabel p {
     margin-right: 10px;
+    font-size: 1rem;
   }
   #answerSheet input:checked + label {
     color: greenyellow;

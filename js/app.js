@@ -6,6 +6,7 @@ import Quiz from "./quiz.js";
 DOM();
 
 const App = (() => {
+  const body = document.querySelector("body");
   const question = container.querySelector("#question");
   const answers = container.querySelector("#answerSheet");
   const tracker = container.querySelector("#currentQuestionNum");
@@ -13,7 +14,7 @@ const App = (() => {
   const quizStatus = container.querySelector("#quizStatus");
   const nextButton = container.querySelector("#next");
   const restartButton = container.querySelector("#restart");
-
+  const toggleBtn = document.querySelector("#toggle");
   const quiz = new Quiz(Question); //store questions in Quiz
 
   //render the quiz dynamically
@@ -76,22 +77,29 @@ const App = (() => {
     );
     progressIndicator(0, currentWidth);
   };
+
+  function renderScore() {
+    return getPercentage(quiz.score, quiz.questions.length);
+  }
+
   //renderResult
+
   const renderResult = (_) => {
     changeContent(question, `Greet Job`);
     changeContent(tracker, "Completed");
-    changeContent(
-      quizStatus,
-      `Your Score: ${getPercentage(quiz.score, quiz.questions.length)}%`
-    );
+    changeContent(quizStatus, `Your Score: ${renderScore()}%`);
     next.style.opacity = 0;
+
     renderProgress();
   };
+
   //Event listener
 
   const eventListeners = (_) => {
     restart.style.opacity = 0;
     next.style.marginLeft = "100px";
+
+    //Next button
     next.addEventListener("click", () => {
       const selectedChoice = container.querySelector(
         "input[name=choice]:checked"
@@ -110,10 +118,24 @@ const App = (() => {
         next.innerText = "Next";
       }, 200);
     });
+
+    //restart Button
     restart.addEventListener("click", () => {
       quiz.reset();
       renderQuiz();
       next.style.opacity = 1;
+      quizStatus.innerText = "Pick a option";
+    });
+
+    //toggle Button
+    toggle.addEventListener("click", () => {
+      if (body.classList.contains("light")) {
+        body.classList.toggle("dark");
+        toggle.children[0].src = "img/icons8-sun-48.png";
+      }
+      if (body.classList.contains("dark")) {
+        toggle.children[0].src = "img/icons8-crescent-moon-48.png";
+      }
     });
   };
   const renderQuiz = (_) => {

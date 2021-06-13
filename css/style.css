@@ -7,7 +7,7 @@
 }
 
 body {
-  background: whitesmoke;
+  background: #fefefe;
 }
 
 #container {
@@ -17,6 +17,10 @@ body {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dark {
+  background: black;
 }
 
 #btn button {
@@ -46,7 +50,7 @@ body {
   width: 24px;
   height: 24px;
   border: 0.25rem solid rgba(255, 255, 255, 0.2);
-  border-top-color: white;
+  border-top-color: #dd1212;
   animation: spin 1s infinite linear;
 }
 
@@ -64,7 +68,7 @@ body {
 }
 
 #btn .center:hover {
-  color: white;
+  color: black;
 }
 
 #btn .center::before, #btn .center::after {
@@ -170,10 +174,10 @@ body {
 
 #container {
   width: 80%;
-  max-width: 560px;
+  max-width: 45rem;
   margin: 0.5rem auto 0rem;
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 1rem 0.4rem;
   /* Progressbar */
 }
 
@@ -223,18 +227,19 @@ body {
 
 #container .choiceLabel {
   cursor: pointer;
+  position: relative;
   font-family: "Montaga", serif;
   font-weight: 500;
-  font-size: 20px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin: 0.5rem 2rem;
   gap: 10px;
 }
 
 #container .choiceLabel p {
   margin-right: 10px;
+  font-size: 1rem;
 }
 
 #container #answerSheet input:checked + label {
