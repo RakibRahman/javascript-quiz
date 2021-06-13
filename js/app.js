@@ -7,13 +7,15 @@ DOM();
 
 const App = (() => {
   const body = document.querySelector("body");
-  const question = container.querySelector("#question");
-  const answers = container.querySelector("#answerSheet");
-  const tracker = container.querySelector("#currentQuestionNum");
-  const progressBar = container.querySelector("#progress");
-  const quizStatus = container.querySelector("#quizStatus");
-  const nextButton = container.querySelector("#next");
-  const restartButton = container.querySelector("#restart");
+  const container = document.querySelector(".container");
+  const questionSheet = document.querySelector(".questionSheet");
+  const question = document.querySelector(".question");
+  const answers = document.querySelector(".answerSheet");
+  const tracker = document.querySelector(".currentQuestionNum");
+  const progressBar = document.querySelector(".progress");
+  const quizStatus = document.querySelector(".quizStatus");
+  const nextButton = document.querySelector("#next");
+  const restartButton = document.querySelector("#restart");
   const toggleBtn = document.querySelector("#toggle");
   const quiz = new Quiz(Question); //store questions in Quiz
 
@@ -129,11 +131,13 @@ const App = (() => {
 
     //toggle Button
     toggle.addEventListener("click", () => {
-      if (body.classList.contains("light")) {
-        body.classList.toggle("dark");
-        toggle.children[0].src = "img/icons8-sun-48.png";
-      }
+      body.classList.toggle("dark");
+      container.classList.toggle("dark");
+      questionSheet.classList.toggle("dark");
+      progressBar.classList.toggle("dark");
       if (body.classList.contains("dark")) {
+        toggle.children[0].src = "img/icons8-sun-48.png";
+      } else {
         toggle.children[0].src = "img/icons8-crescent-moon-48.png";
       }
     });
