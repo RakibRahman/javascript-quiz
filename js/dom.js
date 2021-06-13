@@ -33,7 +33,4 @@ export default function dom() {
 </div>
 
 `;
-  // const scoreBoard = document.createElement("div");
-  // scoreBoard.innerHTML = "score";
-  // container.prepend(scoreBoard);
 }

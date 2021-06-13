@@ -14,9 +14,7 @@ const App = (() => {
   const tracker = document.querySelector(".currentQuestionNum");
   const progressBar = document.querySelector(".progress");
   const quizStatus = document.querySelector(".quizStatus");
-  const nextButton = document.querySelector("#next");
-  const restartButton = document.querySelector("#restart");
-  const toggleBtn = document.querySelector("#toggle");
+
   const quiz = new Quiz(Question); //store questions in Quiz
 
   //render the quiz dynamically
